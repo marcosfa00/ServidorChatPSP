@@ -14,7 +14,7 @@ public class Methods {
     private DataOutputStream outputStream;
     //Constructr
     public Methods() throws IOException {
-        this.serverSocket = new ServerSocket(port,0, InetAddress.getByName(ipAddress));
+
     }
     public void initStreams(Socket socket) throws IOException {
         this.inputStream = new DataInputStream(socket.getInputStream());
