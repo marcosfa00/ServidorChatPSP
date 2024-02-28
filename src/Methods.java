@@ -1,10 +1,11 @@
+
+
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
-import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.net.UnknownHostException;
+
 
 public class Methods {
     public static final int port = 6666;
@@ -27,7 +28,16 @@ public class Methods {
         inputStream.readFully(mensajeBytes);
         String msg = new String(mensajeBytes);
         String [] partes = getUserMSG(msg);
-        System.out.println("Mensaje enviado por el usuario:"+ partes[0]  +"contenido:" + partes[1]);
+        System.out.println("Mensaje recibido de: "+ partes[0]  +" contenido:" + partes[1]);
+
+        enviarDatos(partes[1]);
+        if (partes[1].equals(" /bye")) {
+            inputStream.close();
+            outputStream.close();
+            serverSocket.close();
+            System.out.println("CONEXIÓN CON SERVIDOR CERRADA");
+        }
+
     }
 
     /**
@@ -38,6 +48,14 @@ public class Methods {
     private String[] getUserMSG(String msg){
         String[] usernameMSG = msg.split("\\:");
         return usernameMSG;
+    }
+
+    private void  enviarDatos(String r) throws IOException {
+        String result = String.valueOf(r);
+        byte [] longitud = result.getBytes();
+        outputStream.writeInt(longitud.length);
+        outputStream.write(longitud);
+
     }
 
 

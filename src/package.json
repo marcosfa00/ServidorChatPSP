@@ -1,0 +1,58 @@
+{
+  "usuarios": [
+    {
+      "id": "telefono1",
+      "nombre": "NombreUsuario1"
+    },
+    {
+      "id": "telefono2",
+      "nombre": "NombreUsuario2"
+    },
+    // ... otros usuarios
+  ],
+  "grupos": [
+    {
+      "id_grupo": 1,
+      "nombreGrupo": "Grupo1",
+      "admin": "telefono1",
+      "miembrosGrupo": ["telefono1", "telefono2"]
+    },
+    {
+      "id_grupo": 2,
+      "nombreGrupo": "Grupo2",
+      "admin": "telefono3",
+      "miembrosGrupo": ["telefono3", "telefono4"]
+    },
+    // ... otros grupos
+  ],
+  "mensajes": [
+    {
+      "id_mensaje": 1,
+      "mensaje": "Hola, ¿cómo estás?",
+      "remitente": "telefono1",
+      "destinatario": "telefono2"
+    },
+    {
+      "id_mensaje": 2,
+      "mensaje": "¿Qué tal la reunión?",
+      "remitente": "telefono3",
+      "destinatario": "telefono4"
+    },
+    // ... otros mensajes
+  ],
+  "adjuntos": [
+    {
+      "id_adjunto": 1,
+      "tipo": "imagen",
+      "mensajeasociado": 1,
+      "path": "/adjuntos/imagen1.jpg"
+    },
+    {
+      "id_adjunto": 2,
+      "tipo": "documento",
+      "mensajeasociado": 2,
+      "path": "/adjuntos/documento1.pdf"
+    },
+    // ... otros adjuntos
+  ]
+}
